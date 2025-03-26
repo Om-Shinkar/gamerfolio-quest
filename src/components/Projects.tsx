@@ -17,28 +17,28 @@ const projects = [
   {
     title: "Battle Royale Masters",
     description: "Achieved top 5 ranking in the seasonal Battle Royale championship series.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=500&fit=crop",
     tags: ["Battle Royale", "Championship", "Top 5"],
     date: "Aug 2023",
     participants: "500+",
     link: "#"
   },
   {
-    title: "Strategy Game Invitational",
-    description: "Led team to victory in the annual team-based strategy competition.",
-    image: "/placeholder.svg",
-    tags: ["Strategy", "Team", "Victory"],
-    date: "May 2023",
-    participants: "50 teams",
+    title: "BGMI Tournament",
+    description: "Secured multiple chicken dinners in the BGMI Pro Series and ranked in the top 10 nationally.",
+    image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800&h=500&fit=crop",
+    tags: ["BGMI", "Mobile Gaming", "Esports"],
+    date: "Jan 2023",
+    participants: "5000+",
     link: "#"
   },
   {
-    title: "MOBA Pro League",
-    description: "Secured sponsorship and participated in the professional MOBA league season.",
-    image: "/placeholder.svg",
-    tags: ["MOBA", "Pro League", "Sponsored"],
-    date: "Jan-Apr 2023",
-    participants: "16 teams",
+    title: "Clash of Clans League",
+    description: "Led clan to Legend League status and participated in the Clash World Championship qualifiers.",
+    image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=800&h=500&fit=crop",
+    tags: ["CoC", "Strategy", "Team Leader"],
+    date: "Mar-Jun 2023",
+    participants: "50+ clans",
     link: "#"
   },
   {
@@ -95,11 +95,11 @@ const Projects = () => {
               className="project-card opacity-0"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden h-44">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="project-card-image"
+                  className="project-card-image object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gaming-dark to-transparent opacity-60"></div>
               </div>
