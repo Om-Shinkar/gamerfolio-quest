@@ -10,6 +10,11 @@ export const useIntersectionObserver = (options = {}) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
+          
+          // Add RGB pulsing effect to enhance gaming vibe
+          if (entry.target.classList.contains('glass-card')) {
+            entry.target.classList.add('rgb-pulse');
+          }
         }
       });
     };
@@ -60,6 +65,49 @@ export const staggeredAnimation = (element: HTMLElement, delay = 0) => {
       child.style.opacity = '';
       child.style.animationDelay = `${index * 0.1 + delay}s`;
       child.classList.add('animate-fade-in');
+      
+      // Add RGB glow effect to certain elements
+      if (child.tagName === 'H1' || child.tagName === 'H2' || child.tagName === 'H3') {
+        child.classList.add('rgb-text-shadow');
+      }
     }, 0);
   });
+};
+
+// Add gaming-specific animation for RGB effects
+export const applyRgbEffect = (element: HTMLElement) => {
+  element.classList.add('rgb-border-pulse');
+  
+  // Create RGB light reflection effect
+  const reflection = document.createElement('div');
+  reflection.classList.add('rgb-reflection');
+  element.appendChild(reflection);
+  
+  return () => {
+    element.classList.remove('rgb-border-pulse');
+    if (reflection.parentNode === element) {
+      element.removeChild(reflection);
+    }
+  };
+};
+
+// Helper to create particle effects like in gaming UIs
+export const createParticleEffect = (container: HTMLElement, count = 20) => {
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('gaming-particle');
+    
+    // Randomize particle properties
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    particle.style.animationDelay = `${Math.random() * 2}s`;
+    
+    container.appendChild(particle);
+  }
+  
+  return () => {
+    const particles = container.querySelectorAll('.gaming-particle');
+    particles.forEach(p => p.remove());
+  };
 };

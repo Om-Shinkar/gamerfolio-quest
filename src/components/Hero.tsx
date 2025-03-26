@@ -149,8 +149,8 @@ const Hero = () => {
                   imageLoaded ? "opacity-100" : "opacity-0"
                 )}>
                   <img
-                    src="/placeholder.svg" 
-                    alt="Gamer Profile"
+                    src="/lovable-uploads/6c68e96c-9566-4791-930e-50087402b716.png" 
+                    alt="Gaming Setup with RGB Keyboard"
                     className="w-full h-full object-cover"
                     onLoad={() => setImageLoaded(true)}
                   />
@@ -165,8 +165,8 @@ const Hero = () => {
               </div>
               
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gaming-accent/20 rounded-full blur-xl animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gaming-accent/10 rounded-full blur-xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#ff0844]/20 rounded-full blur-xl animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#00f260]/10 rounded-full blur-xl"></div>
             </div>
             
             {/* Stats Cards */}

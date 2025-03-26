@@ -44,17 +44,20 @@ const About = () => {
             <div className="rounded-2xl overflow-hidden glass-card p-1 shadow-xl">
               <div className="relative rounded-xl overflow-hidden">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="Gaming Setup" 
+                  src="/lovable-uploads/6c68e96c-9566-4791-930e-50087402b716.png" 
+                  alt="Gaming Setup with RGB Keyboard" 
                   className="w-full h-full object-cover aspect-square"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gaming-dark/80 to-transparent"></div>
+                
+                {/* RGB Glow Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ff0844]/20 via-[#00f260]/20 to-[#2196f3]/20 opacity-60 mix-blend-overlay"></div>
               </div>
             </div>
             
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gaming-accent/20 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-28 h-28 bg-gaming-accent/10 rounded-full blur-xl"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#ff0844]/30 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-4 -left-4 w-28 h-28 bg-[#00f260]/20 rounded-full blur-xl"></div>
           </div>
           
           {/* About Content */}
