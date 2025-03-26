@@ -8,7 +8,7 @@ const projects = [
   {
     title: "World Championship 2023",
     description: "First place in the international gaming tournament with over 200 participants from 30 countries.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
     tags: ["FPS", "Tournament", "Champion"],
     date: "Dec 2023",
     participants: "200+",
@@ -44,7 +44,7 @@ const projects = [
   {
     title: "Gaming Content Creation",
     description: "Developed a series of tutorial videos helping new players master advanced techniques.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1603739903239-8b6e64c3b185?w=800&h=500&fit=crop",
     tags: ["Content", "Tutorial", "YouTube"],
     date: "Ongoing",
     participants: "100K+ views",
@@ -53,7 +53,7 @@ const projects = [
   {
     title: "Charity Gaming Marathon",
     description: "Organized and led a 48-hour gaming marathon raising funds for children's hospital.",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&h=500&fit=crop",
     tags: ["Charity", "Event", "Fundraising"],
     date: "Nov 2023",
     participants: "$25K raised",
