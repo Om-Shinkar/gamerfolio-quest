@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { useIntersectionObserver } from '@/lib/animations';
 import { cn } from '@/lib/utils';
+import { Trophy, Medal } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -36,14 +37,34 @@ const skillCategories = [
   }
 ];
 
+const outdoorAchievements = [
+  {
+    game: "Badminton",
+    achievement: "District Champion",
+    icon: <Trophy className="h-6 w-6 text-gaming-accent" />,
+    description: "Multiple-time district level badminton champion with recognized technical excellence and strategic gameplay."
+  },
+  {
+    game: "Athletics",
+    achievement: "Regional Finalist",
+    icon: <Medal className="h-6 w-6 text-gaming-accent" />,
+    description: "Qualified and competed in regional athletic competitions representing my district."
+  }
+];
+
 const Skills = () => {
   const { observe } = useIntersectionObserver();
   const headingRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const outdoorRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     if (headingRef.current) {
       observe(headingRef.current);
+    }
+    
+    if (outdoorRef.current) {
+      observe(outdoorRef.current);
     }
     
     skillsRef.current.forEach(ref => {
@@ -60,6 +81,42 @@ const Skills = () => {
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Years of dedicated practice and competition have honed my gaming abilities across multiple genres and platforms.
           </p>
+        </div>
+        
+        {/* Outdoor Games Achievements */}
+        <div 
+          ref={outdoorRef}
+          className="glass-card rounded-xl p-6 mb-12 opacity-0"
+        >
+          <h3 className="text-xl font-bold mb-6 text-center shimmer-text">Outdoor Games Excellence</h3>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {outdoorAchievements.map((achievement, index) => (
+              <div 
+                key={index}
+                className="bg-gaming-muted/30 rounded-lg p-5 border border-gaming-accent/20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gaming-accent/10"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-gaming-dark p-3 rounded-lg">
+                    {achievement.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold">{achievement.game}</h4>
+                    <p className="text-gaming-accent font-medium">{achievement.achievement}</p>
+                    <p className="text-white/70 mt-2 text-sm">{achievement.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-6 flex justify-center">
+            <div className="bg-gaming-accent/10 px-4 py-2 rounded-lg border border-gaming-accent/20">
+              <p className="text-center text-white/80">
+                <span className="text-gaming-accent font-medium">Not just digital:</span> Excellence in both virtual and physical competitive environments
+              </p>
+            </div>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
