@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { ArrowDown, BookOpen, Award } from 'lucide-react';
+import { ArrowDown, Gamepad, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Hero = () => {
@@ -80,7 +80,7 @@ const Hero = () => {
       />
       
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-30" />
+      <div className="absolute inset-0 bg-gradient-radial from-gaming-accent/10 via-transparent to-transparent opacity-30" />
       
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
@@ -92,29 +92,29 @@ const Hero = () => {
             )}
           >
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary">
-                <BookOpen className="h-4 w-4" />
-                <span className="text-sm font-medium">Educator & Researcher</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gaming-accent/10 border border-gaming-accent/20 text-gaming-accent">
+                <Gamepad className="h-4 w-4" />
+                <span className="text-sm font-medium">Professional Gamer</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Knowledge with <span className="shimmer-text">Depth</span> and <span className="shimmer-text">Purpose</span>
+                Gaming with <span className="shimmer-text">Precision</span> and <span className="shimmer-text">Passion</span>
               </h1>
             </div>
             
             <p className="text-lg text-white/80 max-w-xl leading-relaxed">
-              Dedicated educator and researcher with a passion for advancing knowledge, fostering critical thinking, and inspiring the next generation of scholars.
+              Elite gaming professional with a track record of competition wins, strategic gameplay, and community leadership. Turning gaming passion into a successful career.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="#projects" 
-                className="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                className="px-6 py-3 rounded-lg bg-gaming-accent hover:bg-gaming-accent-light text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-gaming-accent/20"
               >
-                View Research
+                View Projects
               </a>
               <a 
                 href="#contact" 
-                className="px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-medium transition-colors duration-300"
+                className="px-6 py-3 rounded-lg bg-gaming-muted hover:bg-gaming-muted/80 text-white font-medium transition-colors duration-300"
               >
                 Contact Me
               </a>
@@ -122,13 +122,13 @@ const Hero = () => {
             
             <div className="flex items-center gap-4 pt-4">
               <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-primary" />
-                <span>20+ Published Papers</span>
+                <Zap className="h-5 w-5 text-gaming-accent" />
+                <span>100+ Tournament Wins</span>
               </div>
               <div className="h-6 w-px bg-white/20" />
               <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-primary" />
-                <span>15+ Years Experience</span>
+                <Zap className="h-5 w-5 text-gaming-accent" />
+                <span>10+ Years Experience</span>
               </div>
             </div>
           </div>
@@ -143,14 +143,14 @@ const Hero = () => {
           >
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               {/* Profile Image */}
-              <div className="absolute inset-0 bg-slate-700 rounded-2xl overflow-hidden glass-card">
+              <div className="absolute inset-0 bg-gaming-muted rounded-2xl overflow-hidden glass-card">
                 <div className={cn(
                   "w-full h-full transition-opacity duration-700",
                   imageLoaded ? "opacity-100" : "opacity-0"
                 )}>
                   <img
                     src="/lovable-uploads/6c68e96c-9566-4791-930e-50087402b716.png" 
-                    alt="Professional portrait with books"
+                    alt="Gaming Setup with RGB Keyboard"
                     className="w-full h-full object-cover"
                     onLoad={() => setImageLoaded(true)}
                   />
@@ -159,25 +159,25 @@ const Hero = () => {
                 {/* Image Loading Placeholder */}
                 {!imageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-16 h-16 border-4 border-gaming-accent border-t-transparent rounded-full animate-spin"></div>
                   </div>
                 )}
               </div>
               
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#ff0844]/20 rounded-full blur-xl animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#00f260]/10 rounded-full blur-xl"></div>
             </div>
             
             {/* Stats Cards */}
             <div className="absolute -bottom-6 -left-6 glass-card px-4 py-3 rounded-xl shadow-lg animate-float">
-              <p className="text-sm font-medium">Academic</p>
-              <p className="text-xl font-bold shimmer-text">PhD Holder</p>
+              <p className="text-sm font-medium">Top Player</p>
+              <p className="text-xl font-bold shimmer-text">Elite Rank</p>
             </div>
             
             <div className="absolute -top-6 -right-6 glass-card px-4 py-3 rounded-xl shadow-lg animate-float" style={{ animationDelay: '1s' }}>
-              <p className="text-sm font-medium">Publications</p>
-              <p className="text-xl font-bold shimmer-text">20+ Articles</p>
+              <p className="text-sm font-medium">Twitch</p>
+              <p className="text-xl font-bold shimmer-text">10K+ Followers</p>
             </div>
           </div>
         </div>
