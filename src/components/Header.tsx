@@ -44,13 +44,13 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
-          ? "py-3 backdrop-blur-xl bg-gaming-dark/80 border-b border-white/5 shadow-sm" 
+          ? "py-3 backdrop-blur-xl bg-slate-900/80 border-b border-white/5 shadow-sm" 
           : "py-5 bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#home" className="text-2xl font-bold font-display flex items-center gap-2">
-          <span className="shimmer-text">Gamer</span>
+          <span className="shimmer-text">Wisdom</span>
           <span>Portfolio</span>
         </a>
 
@@ -87,13 +87,13 @@ const Header = () => {
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="absolute inset-0 bg-gaming-dark opacity-95"></div>
+        <div className="absolute inset-0 bg-slate-900 opacity-95"></div>
         <nav className="relative h-full flex flex-col items-center justify-center gap-8 text-center">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className="text-2xl font-medium text-white hover:text-gaming-accent transition-colors duration-300"
+              className="text-2xl font-medium text-white hover:text-primary transition-colors duration-300"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}

@@ -1,62 +1,62 @@
 
 import { useRef, useEffect } from 'react';
 import { useIntersectionObserver } from '@/lib/animations';
-import { ExternalLink, Trophy, Users, Calendar } from 'lucide-react';
+import { ExternalLink, BookOpen, Users, Calendar } from 'lucide-react';
 
 // Sample projects data
 const projects = [
   {
-    title: "World Championship 2023",
-    description: "First place in the international gaming tournament with over 200 participants from 30 countries.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
-    tags: ["FPS", "Tournament", "Champion"],
+    title: "Epistemology in Practice",
+    description: "Published research on the practical applications of epistemological frameworks in educational settings.",
+    image: "https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=800&h=500&fit=crop",
+    tags: ["Philosophy", "Education", "Epistemology"],
     date: "Dec 2023",
-    participants: "200+",
+    participants: "3 Collaborators",
     link: "#"
   },
   {
-    title: "Battle Royale Masters",
-    description: "Achieved top 5 ranking in the seasonal Battle Royale championship series.",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&h=500&fit=crop",
-    tags: ["Battle Royale", "Championship", "Top 5"],
+    title: "Critical Thinking Framework",
+    description: "Developed a comprehensive framework for teaching critical thinking skills across academic disciplines.",
+    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=500&fit=crop",
+    tags: ["Education", "Methodology", "Framework"],
     date: "Aug 2023",
-    participants: "500+",
+    participants: "University Implementation",
     link: "#"
   },
   {
-    title: "BGMI Tournament",
-    description: "Secured multiple chicken dinners in the BGMI Pro Series and ranked in the top 10 nationally.",
-    image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800&h=500&fit=crop",
-    tags: ["BGMI", "Mobile Gaming", "Esports"],
+    title: "Ethics in Modern Society",
+    description: "Research examining the evolution of ethical frameworks in response to technological and social changes.",
+    image: "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?w=800&h=500&fit=crop",
+    tags: ["Ethics", "Society", "Technology"],
     date: "Jan 2023",
-    participants: "5000+",
+    participants: "Conference Keynote",
     link: "#"
   },
   {
-    title: "Clash of Clans League",
-    description: "Led clan to Legend League status and participated in the Clash World Championship qualifiers.",
-    image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=800&h=500&fit=crop",
-    tags: ["CoC", "Strategy", "Team Leader"],
+    title: "Knowledge Acquisition Study",
+    description: "Longitudinal study on how environmental factors influence knowledge acquisition and retention.",
+    image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=800&h=500&fit=crop",
+    tags: ["Psychology", "Education", "Research"],
     date: "Mar-Jun 2023",
-    participants: "50+ clans",
+    participants: "200+ Subjects",
     link: "#"
   },
   {
-    title: "Gaming Content Creation",
-    description: "Developed a series of tutorial videos helping new players master advanced techniques.",
-    image: "https://images.unsplash.com/photo-1603739903239-8b6e64c3b185?w=800&h=500&fit=crop",
-    tags: ["Content", "Tutorial", "YouTube"],
+    title: "Educational Content Series",
+    description: "Developed a comprehensive series of educational materials on philosophical concepts for undergraduate students.",
+    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&h=500&fit=crop",
+    tags: ["Content", "Philosophy", "Education"],
     date: "Ongoing",
-    participants: "100K+ views",
+    participants: "10,000+ Students",
     link: "#"
   },
   {
-    title: "Charity Gaming Marathon",
-    description: "Organized and led a 48-hour gaming marathon raising funds for children's hospital.",
-    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&h=500&fit=crop",
-    tags: ["Charity", "Event", "Fundraising"],
+    title: "Academic Symposium",
+    description: "Organized and chaired an international symposium on advancing educational methodologies.",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop",
+    tags: ["Conference", "Education", "Leadership"],
     date: "Nov 2023",
-    participants: "$25K raised",
+    participants: "15 Countries",
     link: "#"
   }
 ];
@@ -80,10 +80,10 @@ const Projects = () => {
     <section id="projects" className="section-container">
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="space-y-3 text-center mb-16 opacity-0">
-          <p className="text-gaming-accent font-medium">MY ACHIEVEMENTS</p>
-          <h2 className="section-heading">Featured <span className="shimmer-text">Gaming</span> Projects</h2>
+          <p className="text-primary font-medium">MY CONTRIBUTIONS</p>
+          <h2 className="section-heading">Featured <span className="shimmer-text">Research</span> & Publications</h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            A showcase of my top gaming achievements, tournaments, and content creation projects.
+            A showcase of my key academic works, research projects, and scholarly contributions.
           </p>
         </div>
         
@@ -101,7 +101,7 @@ const Projects = () => {
                   alt={project.title}
                   className="project-card-image object-cover w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gaming-dark to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
               </div>
               
               <div className="p-6 space-y-4">
@@ -109,7 +109,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="px-2 py-1 text-xs font-medium bg-gaming-accent/20 text-gaming-accent rounded-md"
+                      className="px-2 py-1 text-xs font-medium bg-primary/20 text-primary rounded-md"
                     >
                       {tag}
                     </span>
@@ -132,7 +132,7 @@ const Projects = () => {
                 
                 <a 
                   href={project.link}
-                  className="inline-flex items-center gap-2 text-gaming-accent hover:text-gaming-accent-light transition-colors duration-300 text-sm font-medium"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium"
                 >
                   View Project <ExternalLink className="h-4 w-4" />
                 </a>
@@ -148,10 +148,10 @@ const Projects = () => {
         >
           <a 
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gaming-accent hover:bg-gaming-accent-light text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-gaming-accent/20"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
-            <Trophy className="h-5 w-5" />
-            View All Achievements
+            <BookOpen className="h-5 w-5" />
+            View All Publications
           </a>
         </div>
       </div>
