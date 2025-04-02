@@ -90,24 +90,38 @@ const Skills = () => {
         >
           <h3 className="text-xl font-bold mb-6 text-center shimmer-text">Outdoor Games Excellence</h3>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            {outdoorAchievements.map((achievement, index) => (
-              <div 
-                key={index}
-                className="bg-gaming-muted/30 rounded-lg p-5 border border-gaming-accent/20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gaming-accent/10"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-gaming-dark p-3 rounded-lg">
-                    {achievement.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold">{achievement.game}</h4>
-                    <p className="text-gaming-accent font-medium">{achievement.achievement}</p>
-                    <p className="text-white/70 mt-2 text-sm">{achievement.description}</p>
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* Badminton Image */}
+            <div className="rounded-xl overflow-hidden glass-card p-1">
+              <img 
+                src="/lovable-uploads/6f12248c-1cf2-4910-bffc-b4fbac0d5c0b.png"
+                alt="Badminton match in progress" 
+                className="w-full h-auto rounded-lg"
+              />
+              <div className="p-2 text-center">
+                <p className="text-sm text-gaming-accent font-medium">Championship Level Badminton</p>
+              </div>
+            </div>
+            
+            <div className="space-y-6">
+              {outdoorAchievements.map((achievement, index) => (
+                <div 
+                  key={index}
+                  className="bg-gaming-muted/30 rounded-lg p-5 border border-gaming-accent/20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gaming-accent/10"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gaming-dark p-3 rounded-lg">
+                      {achievement.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold">{achievement.game}</h4>
+                      <p className="text-gaming-accent font-medium">{achievement.achievement}</p>
+                      <p className="text-white/70 mt-2 text-sm">{achievement.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
           <div className="mt-6 flex justify-center">
