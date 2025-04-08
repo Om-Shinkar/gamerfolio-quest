@@ -36,6 +36,30 @@ const About = () => {
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Hi, I'm Om Shhinkar, an 18-year-old tech enthusiast and aspiring engineer. Currently pursuing 12th grade and preparing to embark on my B.Tech journey at MIT College, I combine my passion for gaming with a drive for technological innovation.
           </p>
+          
+          {/* Profile Information Table */}
+          <div className="mt-8 max-w-md mx-auto glass-card p-4 rounded-xl">
+            <table className="w-full text-left">
+              <tbody>
+                <tr className="border-b border-gaming-accent/20">
+                  <td className="py-3 font-medium text-gaming-accent">Name</td>
+                  <td className="py-3 text-white">Om Shhinkar</td>
+                </tr>
+                <tr className="border-b border-gaming-accent/20">
+                  <td className="py-3 font-medium text-gaming-accent">Age</td>
+                  <td className="py-3 text-white">18 years</td>
+                </tr>
+                <tr className="border-b border-gaming-accent/20">
+                  <td className="py-3 font-medium text-gaming-accent">Qualification</td>
+                  <td className="py-3 text-white">12th Pass</td>
+                </tr>
+                <tr>
+                  <td className="py-3 font-medium text-gaming-accent">Future Education</td>
+                  <td className="py-3 text-white">B.Tech at MIT College</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
