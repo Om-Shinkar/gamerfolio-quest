@@ -2,7 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { useIntersectionObserver } from '@/lib/animations';
 import { cn } from '@/lib/utils';
-import { Trophy, Medal } from 'lucide-react';
+import { Trophy, Medal, PenTool } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -34,6 +34,16 @@ const skillCategories = [
       { name: "Live Commentary", level: 85 },
       { name: "Coaching", level: 80 }
     ]
+  },
+  {
+    title: "Creative Skills",
+    skills: [
+      { name: "Drawing", level: 95 },
+      { name: "Sketching", level: 90 },
+      { name: "Painting", level: 85 },
+      { name: "Character Design", level: 80 },
+      { name: "Digital Art", level: 75 }
+    ]
   }
 ];
 
@@ -57,6 +67,7 @@ const Skills = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
   const outdoorRef = useRef<HTMLDivElement>(null);
+  const drawingRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     if (headingRef.current) {
@@ -65,6 +76,10 @@ const Skills = () => {
     
     if (outdoorRef.current) {
       observe(outdoorRef.current);
+    }
+    
+    if (drawingRef.current) {
+      observe(drawingRef.current);
     }
     
     skillsRef.current.forEach(ref => {
@@ -81,6 +96,74 @@ const Skills = () => {
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Years of dedicated practice and competition have honed my gaming abilities across multiple genres and platforms.
           </p>
+        </div>
+        
+        {/* Drawing Showcase */}
+        <div 
+          ref={drawingRef}
+          className="glass-card rounded-xl p-6 mb-12 opacity-0"
+        >
+          <h3 className="text-xl font-bold mb-6 text-center shimmer-text">Master Artist</h3>
+          
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="space-y-6">
+              <div className="bg-gaming-muted/30 rounded-lg p-5 border border-gaming-accent/20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gaming-accent/10">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gaming-dark p-3 rounded-lg">
+                    <PenTool className="h-6 w-6 text-gaming-accent" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold">Drawing & Painting</h4>
+                    <p className="text-gaming-accent font-medium">10 Years Experience</p>
+                    <p className="text-white/70 mt-2 text-sm">
+                      Mastery in sketching and painting techniques with a decade of dedicated practice and artistic exploration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Sketching</span>
+                      <span className="text-sm text-gaming-accent">95%</span>
+                    </div>
+                    <div className="h-2 bg-gaming-muted rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gaming-accent rounded-full"
+                        style={{ width: '95%' }}
+                      ></div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Painting</span>
+                      <span className="text-sm text-gaming-accent">90%</span>
+                    </div>
+                    <div className="h-2 bg-gaming-muted rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gaming-accent rounded-full"
+                        style={{ width: '90%' }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Drawing Image */}
+            <div className="rounded-xl overflow-hidden glass-card p-1">
+              <div className="bg-gaming-dark/40 rounded-lg p-8 text-center">
+                <PenTool className="h-16 w-16 mx-auto mb-4 text-gaming-accent" />
+                <h4 className="text-xl font-bold">Artistic Excellence</h4>
+                <p className="text-white/70 mt-2">
+                  From detailed portraits to vibrant landscapes, I've mastered various artistic styles and techniques over my decade-long journey.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         
         {/* Outdoor Games Achievements */}
@@ -133,7 +216,7 @@ const Skills = () => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex}
@@ -170,7 +253,7 @@ const Skills = () => {
         
         {/* Additional Gaming Platforms */}
         <div 
-          ref={el => skillsRef.current[3] = el}
+          ref={el => skillsRef.current[4] = el}
           className="mt-12 glass-card rounded-xl p-6 opacity-0"
         >
           <h3 className="text-xl font-bold mb-6 text-center">Gaming Platforms</h3>
