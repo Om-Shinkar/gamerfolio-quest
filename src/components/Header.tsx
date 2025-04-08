@@ -49,13 +49,15 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-between">
-          {/* Centered and Animated Logo */}
-          <a href="#home" className="text-2xl font-bold font-display flex flex-col items-center gap-2 mb-2 animate-fade-in">
-            <span className="shimmer-text text-center text-3xl">Gamer</span>
-            <span className="text-center">Portfolio</span>
-          </a>
-
+        {/* Main Title - Centered with Animation */}
+        <div className="flex flex-col items-center justify-center mb-4">
+          <h1 className="text-4xl font-bold font-display animate-fade-in bg-clip-text text-transparent bg-gradient-to-r from-gaming-accent via-gaming-accent-light to-gaming-accent">
+            Gamer Portfolio
+          </h1>
+        </div>
+        
+        {/* Navigation Bar */}
+        <div className="flex items-center justify-center">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

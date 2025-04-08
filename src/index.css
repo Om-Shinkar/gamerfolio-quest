@@ -141,4 +141,37 @@
   .project-card:hover .project-card-image {
     @apply scale-105;
   }
+  
+  /* Animation for the main title */
+  @keyframes text-shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-text-shimmer {
+    animation: text-shimmer 3s infinite;
+  }
+  
+  /* Enhanced fade-in animation */
+  @keyframes enhanced-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: enhanced-fade-in 1s ease-out forwards;
+  }
 }
