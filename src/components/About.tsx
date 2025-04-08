@@ -34,7 +34,7 @@ const About = () => {
           <p className="text-gaming-accent font-medium">ABOUT ME</p>
           <h2 className="section-heading">Gaming Excellence <span className="shimmer-text">Personified</span></h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            A passionate gamer with years of competitive experience, pushing the boundaries of what's possible in digital worlds and building communities along the way.
+            Hi, I'm Om Shhinkar, an 18-year-old tech enthusiast and aspiring engineer. Currently pursuing 12th grade and preparing to embark on my B.Tech journey at MIT College, I combine my passion for gaming with a drive for technological innovation.
           </p>
         </div>
         
