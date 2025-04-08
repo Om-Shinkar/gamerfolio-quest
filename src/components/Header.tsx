@@ -48,36 +48,39 @@ const Header = () => {
           : "py-5 bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="text-2xl font-bold font-display flex items-center gap-2">
-          <span className="shimmer-text">Gamer</span>
-          <span>Portfolio</span>
-        </a>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center justify-between">
+          {/* Centered and Animated Logo */}
+          <a href="#home" className="text-2xl font-bold font-display flex flex-col items-center gap-2 mb-2 animate-fade-in">
+            <span className="shimmer-text text-center text-3xl">Gamer</span>
+            <span className="text-center">Portfolio</span>
+          </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href}
-              className={cn(
-                "nav-link",
-                activeSection === link.href.substring(1) ? "active" : ""
-              )}
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className={cn(
+                  "nav-link",
+                  activeSection === link.href.substring(1) ? "active" : ""
+                )}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-        {/* Mobile Navigation Toggle */}
-        <button 
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Mobile Navigation Toggle */}
+          <button 
+            className="md:hidden text-white focus:outline-none absolute top-4 right-4"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
