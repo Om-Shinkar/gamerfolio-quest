@@ -6,6 +6,7 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Goals from '@/components/Goals';
 import Projects from '@/components/Projects';
+import References from '@/components/References';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { createParticleEffect } from '@/lib/animations';
@@ -35,6 +36,7 @@ const Index = () => {
       <Skills />
       <Goals />
       <Projects />
+      <References />
       <Contact />
       <Footer />
     </div>
