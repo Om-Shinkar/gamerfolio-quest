@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -28,13 +28,27 @@ type Reference = {
   date: string;
 };
 
+const STORAGE_KEY = 'testimonials';
+
 const References = () => {
   const { toast } = useToast();
-  const [references, setReferences] = useState<Reference[]>(() => {
-    const savedReferences = localStorage.getItem('testimonials');
-    return savedReferences ? JSON.parse(savedReferences) : [];
-  });
+  const [references, setReferences] = useState<Reference[]>([]);
   const [showForm, setShowForm] = useState(false);
+  
+  // Load testimonials from localStorage when component mounts
+  useEffect(() => {
+    const savedReferences = localStorage.getItem(STORAGE_KEY);
+    if (savedReferences) {
+      try {
+        const parsedReferences = JSON.parse(savedReferences);
+        setReferences(parsedReferences);
+        console.log('Loaded testimonials:', parsedReferences);
+      } catch (error) {
+        console.error('Error parsing testimonials from localStorage:', error);
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+  }, []);
 
   const form = useForm<ReferenceForm>({
     resolver: zodResolver(formSchema),
@@ -56,14 +70,21 @@ const References = () => {
 
     const updatedReferences = [...references, newReference];
     setReferences(updatedReferences);
-    localStorage.setItem('testimonials', JSON.stringify(updatedReferences));
+    
+    // Save to localStorage
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedReferences));
+      console.log('Saved testimonials:', updatedReferences);
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
     
     form.reset();
     setShowForm(false);
     
     toast({
       title: "Thank you for your testimonial!",
-      description: "Your feedback has been saved.",
+      description: "Your feedback has been saved and displayed.",
     });
   };
 
