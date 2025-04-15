@@ -28,6 +28,7 @@ type Reference = {
   date: string;
 };
 
+// Use a consistent storage key
 const STORAGE_KEY = 'testimonials';
 
 const References = () => {
@@ -37,17 +38,22 @@ const References = () => {
   
   // Load testimonials from localStorage when component mounts
   useEffect(() => {
-    const savedReferences = localStorage.getItem(STORAGE_KEY);
-    if (savedReferences) {
+    const loadTestimonials = () => {
       try {
-        const parsedReferences = JSON.parse(savedReferences);
-        setReferences(parsedReferences);
-        console.log('Loaded testimonials:', parsedReferences);
+        const savedReferences = localStorage.getItem(STORAGE_KEY);
+        if (savedReferences) {
+          const parsedReferences = JSON.parse(savedReferences);
+          setReferences(parsedReferences);
+          console.log('Testimonials loaded successfully:', parsedReferences);
+        } else {
+          console.log('No saved testimonials found in localStorage');
+        }
       } catch (error) {
-        console.error('Error parsing testimonials from localStorage:', error);
-        localStorage.removeItem(STORAGE_KEY);
+        console.error('Error loading testimonials from localStorage:', error);
       }
-    }
+    };
+
+    loadTestimonials();
   }, []);
 
   const form = useForm<ReferenceForm>({
@@ -71,12 +77,18 @@ const References = () => {
     const updatedReferences = [...references, newReference];
     setReferences(updatedReferences);
     
-    // Save to localStorage
+    // Save to localStorage with better error handling
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedReferences));
-      console.log('Saved testimonials:', updatedReferences);
+      console.log('Testimonials saved successfully:', updatedReferences);
     } catch (error) {
-      console.error('Error saving to localStorage:', error);
+      console.error('Error saving testimonials to localStorage:', error);
+      toast({
+        title: "Error saving your testimonial",
+        description: "There was a problem saving your feedback. Please try again.",
+        variant: "destructive",
+      });
+      return;
     }
     
     form.reset();
@@ -84,7 +96,7 @@ const References = () => {
     
     toast({
       title: "Thank you for your testimonial!",
-      description: "Your feedback has been saved and displayed.",
+      description: "Your feedback has been saved and will be displayed whenever someone visits the site.",
     });
   };
 
