@@ -31,25 +31,52 @@ type Reference = {
 // Use a consistent storage key
 const STORAGE_KEY = 'testimonials';
 
+// Add your sister's testimonial as a default reference
+const DEFAULT_REFERENCES: Reference[] = [
+  {
+    id: "sister-reference-001",
+    name: "Your Sister",
+    profession: "Student",
+    testimonial: "My brother has always been passionate about gaming and technology. His portfolio perfectly showcases his skills and creative vision. I'm proud of what he's accomplished and excited to see where his career will take him!",
+    date: new Date(Date.now() - 86400000).toLocaleDateString(), // yesterday's date
+  }
+];
+
 const References = () => {
   const { toast } = useToast();
   const [references, setReferences] = useState<Reference[]>([]);
   const [showForm, setShowForm] = useState(false);
+  const [initialized, setInitialized] = useState(false);
   
   // Load testimonials from localStorage when component mounts
   useEffect(() => {
     const loadTestimonials = () => {
       try {
         const savedReferences = localStorage.getItem(STORAGE_KEY);
+        
         if (savedReferences) {
           const parsedReferences = JSON.parse(savedReferences);
           setReferences(parsedReferences);
           console.log('Testimonials loaded successfully:', parsedReferences);
         } else {
-          console.log('No saved testimonials found in localStorage');
+          // If no testimonials found, use the default references
+          console.log('No saved testimonials found, using default references');
+          setReferences(DEFAULT_REFERENCES);
+          // Save default references to localStorage
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_REFERENCES));
         }
       } catch (error) {
         console.error('Error loading testimonials from localStorage:', error);
+        // If there's an error, use default references as fallback
+        setReferences(DEFAULT_REFERENCES);
+        // Try to save the defaults
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_REFERENCES));
+        } catch (saveError) {
+          console.error('Error saving default testimonials:', saveError);
+        }
+      } finally {
+        setInitialized(true);
       }
     };
 
@@ -75,12 +102,21 @@ const References = () => {
     };
 
     const updatedReferences = [...references, newReference];
-    setReferences(updatedReferences);
     
     // Save to localStorage with better error handling
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedReferences));
       console.log('Testimonials saved successfully:', updatedReferences);
+      
+      // Only update state after successful save
+      setReferences(updatedReferences);
+      form.reset();
+      setShowForm(false);
+      
+      toast({
+        title: "Thank you for your testimonial!",
+        description: "Your feedback has been saved and will be displayed whenever someone visits the site.",
+      });
     } catch (error) {
       console.error('Error saving testimonials to localStorage:', error);
       toast({
@@ -88,17 +124,25 @@ const References = () => {
         description: "There was a problem saving your feedback. Please try again.",
         variant: "destructive",
       });
-      return;
     }
-    
-    form.reset();
-    setShowForm(false);
-    
-    toast({
-      title: "Thank you for your testimonial!",
-      description: "Your feedback has been saved and will be displayed whenever someone visits the site.",
-    });
   };
+
+  // Don't render until we've tried to load from storage
+  if (!initialized) {
+    return (
+      <section id="references" className="section-container">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-3 text-center mb-16">
+            <p className="text-gaming-accent font-medium">TESTIMONIALS</p>
+            <h2 className="section-heading">References & <span className="shimmer-text">Feedback</span></h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
+              Loading testimonials...
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="references" className="section-container">
